@@ -1,0 +1,102 @@
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "width": 800,
+    "height": 450,
+    "title": "Grand Slam Wins by the Big 3 (Federer, Nadal, Djokovic)",
+    "data": {
+      "url": "https://raw.githubusercontent.com/nikolavuko/A2/refs/heads/main/big_3_grand_slam_wins.csv",
+      "format": {"type": "csv"}
+    },
+    "params": [
+      {
+        "name": "yearSelector",
+        "value": 2024,
+        "bind": {
+          "input": "select",
+          "options": [
+            2000, 2001, 2002, 2003, 2004, 2005, 2006, 2007, 2008, 2009, 2010,
+            2011, 2012, 2013, 2014, 2015, 2016, 2017, 2018, 2019, 2020, 2021,
+            2022, 2023, 2024
+          ],
+          "labels": [
+            "2000", "2001", "2002", "2003", "2004", "2005", "2006", "2007",
+            "2008", "2009", "2010", "2011", "2012", "2013", "2014", "2015",
+            "2016", "2017", "2018", "2019", "2020", "2021", "2022", "2023",
+            "2024"
+          ],
+          "name": "Select Year: "
+        }
+      }
+    ],
+    "transform": [
+      {
+        "fold": ["Australian Open", "French Open", "Wimbledon", "US Open"],
+        "as": ["Tournament", "Wins"]
+      },
+      {
+        "filter": "datum.Year == yearSelector"
+      }
+    ],
+    "layer": [
+      {
+        "mark": "bar",
+        "encoding": {
+          "x": {
+            "field": "Player",
+            "type": "nominal",
+            "axis": {"labelAngle": 0},
+            "title": "Player",
+            "scale": {"domain": ["Roger Federer", "Rafael Nadal", "Novak Djokovic"]}
+          },
+          "y": {
+            "aggregate": "sum",
+            "field": "Wins",
+            "type": "quantitative",
+            "title": "Grand Slam Wins",
+            "scale": {
+              "domain": [0, 25]
+            }
+          },
+          "color": {
+            "field": "Tournament",
+            "type": "nominal",
+            "scale": {
+              "domain": ["Australian Open", "French Open", "Wimbledon", "US Open"],
+              "range": ["#ADD8E6", "#FF7F0E", "#2ca02c", "#00008B"]
+            }
+          },
+          "tooltip": [
+            {"field": "Player", "type": "nominal", "title": "Player"},
+            {"field": "Tournament", "type": "nominal", "title": "Tournament"},
+            {"field": "Wins", "type": "quantitative", "title": "Wins"}
+          ]
+        }
+      },
+      {
+        "mark": {
+          "type": "text",
+          "align": "right",
+          "dx": -190,
+          "dy": 20,
+          "fontSize": 14,
+          "color": "black"
+        },
+        "encoding": {
+          "x": {"field": "Player", "type": "nominal"},
+          "y": {"aggregate": "sum", "field": "Wins", "type": "quantitative"},
+          "text": {
+            "value": "Novak Djokovic is the first player to reach 24 slams in the open era"
+          }
+        },
+        "transform": [
+          {"filter": "datum.Player == 'Novak Djokovic'"},
+          {"filter": "datum.Year == 2024"}
+        ]
+      }
+    ],
+    "config": {
+      "view": {"stroke": "transparent"},
+      "axis": {"domainWidth": 1}
+    }
+  }
+  
