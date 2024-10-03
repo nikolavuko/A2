@@ -4,8 +4,7 @@
     "height": 450,
     "title": "Grand Slam Wins by the Big 3",
     "data": {
-      "url": "https://raw.githubusercontent.com/nikolavuko/A2/refs/heads/main/big_3_grand_slam_wins.csv",
-      "format": {"type": "csv"}
+      "url": "https://raw.githubusercontent.com/nikolavuko/A2/refs/heads/main/big_3_grand_slam_wins.csv"
     },
     "params": [
       {
