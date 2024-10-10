@@ -1,54 +1,135 @@
 {
-    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-    "title": "Year-End ATP Ranks of the Big 3 (2000-2024)",
-    "data": {
-      "url": "https://raw.githubusercontent.com/nikolavuko/A2/refs/heads/main/Big_3_ATP_Ranks_2000_2024.csv",
-      "format": {"type": "csv"}
-    },
-    "transform": [
-      {
-        "fold": ["Roger Federer", "Rafael Nadal", "Novak Djokovic"],
-        "as": ["Player", "Rank"]
-      },
-      {
-        "filter": "datum.Rank != null && datum.Rank != '' && datum.Rank > 0"
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "title": "Year-End ATP Ranks of the Big 3 (2000-2024)",
+  "width": 800,
+  "height": 400,
+  "data": {
+    "values": [
+      {"Year": 2000, "Player": "Roger Federer", "Rank": 29},
+      {"Year": 2001, "Player": "Roger Federer", "Rank": 13},
+      {"Year": 2002, "Player": "Roger Federer", "Rank": 6},
+      {"Year": 2003, "Player": "Roger Federer", "Rank": 2},
+      {"Year": 2004, "Player": "Roger Federer", "Rank": 1},
+      {"Year": 2005, "Player": "Roger Federer", "Rank": 1},
+      {"Year": 2006, "Player": "Roger Federer", "Rank": 1},
+      {"Year": 2007, "Player": "Roger Federer", "Rank": 1},
+      {"Year": 2008, "Player": "Roger Federer", "Rank": 2},
+      {"Year": 2009, "Player": "Roger Federer", "Rank": 1},
+      {"Year": 2010, "Player": "Roger Federer", "Rank": 2},
+      {"Year": 2011, "Player": "Roger Federer", "Rank": 3},
+      {"Year": 2012, "Player": "Roger Federer", "Rank": 2},
+      {"Year": 2013, "Player": "Roger Federer", "Rank": 6},
+      {"Year": 2014, "Player": "Roger Federer", "Rank": 2},
+      {"Year": 2015, "Player": "Roger Federer", "Rank": 3},
+      {"Year": 2016, "Player": "Roger Federer", "Rank": 16},
+      {"Year": 2017, "Player": "Roger Federer", "Rank": 2},
+      {"Year": 2018, "Player": "Roger Federer", "Rank": 3},
+      {"Year": 2019, "Player": "Roger Federer", "Rank": 3},
+      {"Year": 2020, "Player": "Roger Federer", "Rank": 5},
+      {"Year": 2021, "Player": "Roger Federer", "Rank": 16},
+      {"Year": 2022, "Player": "Roger Federer", "Rank": 97},
+      {"Year": 2001, "Player": "Rafael Nadal", "Rank": 818},
+      {"Year": 2002, "Player": "Rafael Nadal", "Rank": 235},
+      {"Year": 2003, "Player": "Rafael Nadal", "Rank": 47},
+      {"Year": 2004, "Player": "Rafael Nadal", "Rank": 51},
+      {"Year": 2005, "Player": "Rafael Nadal", "Rank": 2},
+      {"Year": 2006, "Player": "Rafael Nadal", "Rank": 2},
+      {"Year": 2007, "Player": "Rafael Nadal", "Rank": 2},
+      {"Year": 2008, "Player": "Rafael Nadal", "Rank": 1},
+      {"Year": 2009, "Player": "Rafael Nadal", "Rank": 2},
+      {"Year": 2010, "Player": "Rafael Nadal", "Rank": 1},
+      {"Year": 2011, "Player": "Rafael Nadal", "Rank": 2},
+      {"Year": 2012, "Player": "Rafael Nadal", "Rank": 4},
+      {"Year": 2013, "Player": "Rafael Nadal", "Rank": 1},
+      {"Year": 2014, "Player": "Rafael Nadal", "Rank": 3},
+      {"Year": 2015, "Player": "Rafael Nadal", "Rank": 5},
+      {"Year": 2016, "Player": "Rafael Nadal", "Rank": 9},
+      {"Year": 2017, "Player": "Rafael Nadal", "Rank": 1},
+      {"Year": 2018, "Player": "Rafael Nadal", "Rank": 2},
+      {"Year": 2019, "Player": "Rafael Nadal", "Rank": 1},
+      {"Year": 2020, "Player": "Rafael Nadal", "Rank": 2},
+      {"Year": 2021, "Player": "Rafael Nadal", "Rank": 6},
+      {"Year": 2022, "Player": "Rafael Nadal", "Rank": 2},
+      {"Year": 2023, "Player": "Rafael Nadal", "Rank": 664},
+      {"Year": 2003, "Player": "Novak Djokovic", "Rank": 679},
+      {"Year": 2004, "Player": "Novak Djokovic", "Rank": 186},
+      {"Year": 2005, "Player": "Novak Djokovic", "Rank": 78},
+      {"Year": 2006, "Player": "Novak Djokovic", "Rank": 16},
+      {"Year": 2007, "Player": "Novak Djokovic", "Rank": 3},
+      {"Year": 2008, "Player": "Novak Djokovic", "Rank": 3},
+      {"Year": 2009, "Player": "Novak Djokovic", "Rank": 3},
+      {"Year": 2010, "Player": "Novak Djokovic", "Rank": 3},
+      {"Year": 2011, "Player": "Novak Djokovic", "Rank": 1},
+      {"Year": 2012, "Player": "Novak Djokovic", "Rank": 1},
+      {"Year": 2013, "Player": "Novak Djokovic", "Rank": 2},
+      {"Year": 2014, "Player": "Novak Djokovic", "Rank": 1},
+      {"Year": 2015, "Player": "Novak Djokovic", "Rank": 1},
+      {"Year": 2016, "Player": "Novak Djokovic", "Rank": 2},
+      {"Year": 2017, "Player": "Novak Djokovic", "Rank": 12},
+      {"Year": 2018, "Player": "Novak Djokovic", "Rank": 1},
+      {"Year": 2019, "Player": "Novak Djokovic", "Rank": 2},
+      {"Year": 2020, "Player": "Novak Djokovic", "Rank": 1},
+      {"Year": 2021, "Player": "Novak Djokovic", "Rank": 1},
+      {"Year": 2022, "Player": "Novak Djokovic", "Rank": 5},
+      {"Year": 2023, "Player": "Novak Djokovic", "Rank": 2},
+      {"Year": 2024, "Player": "Novak Djokovic", "Rank": 4}
+    ]
+  },
+  "params": [
+    {
+      "name": "View",
+      "value": "All Ranks",
+      "bind": {
+        "input": "select",
+        "options": ["All Ranks", "Top 5"],
+        "name": "View Mode: "
       }
-    ],
-    "width": 800,
-    "height": 400,
-    "mark": {
-      "type": "line",
-      "point": true,
-      "interpolate": "linear"
-    },
-    "encoding": {
-      "x": {
-        "field": "Year",
-        "type": "ordinal",
-        "title": "Year",
-        "axis": {"labelAngle": 0}
-      },
-      "y": {
-        "field": "Rank",
-        "type": "quantitative",
-        "title": "ATP Rank",
-        "scale": {"domain": [1, 5], "reverse": true, "zero": false},
-        "axis": {"tickMinStep": 1}
-      },
-      "color": {
-        "field": "Player",
-        "type": "nominal",
-        "scale": {"range": ["#1f77b4", "#ff7f0e", "#2ca02c"]},
-        "title": "Player"
-      },
-      "tooltip": [
-        {"field": "Year", "type": "ordinal", "title": "Year"},
-        {"field": "Player", "type": "nominal", "title": "Player"},
-        {"field": "Rank", "type": "quantitative", "title": "Rank"}
-      ]
-    },
-    "config": {
-      "line": {"point": true}
     }
-  }
-  
+  ],
+  "transform": [
+    {
+      "filter": "View == 'All Ranks' || (View == 'Top 5' && datum.Rank <= 5)"
+    }
+  ],
+  "layer": [
+    {
+      "mark": {"type": "line", "point": true},
+      "encoding": {
+        "x": {"field": "Year", "type": "ordinal", "title": "Year"},
+        "y": {
+          "field": "Rank",
+          "type": "quantitative",
+          "title": "ATP Rank",
+          "scale": {"reverse": true}
+        },
+        "color": {
+          "field": "Player",
+          "type": "nominal",
+          "scale": {"range": ["#1f77b4", "#ff7f0e", "#2ca02c"]},
+          "title": "Player"
+        },
+        "tooltip": [
+          {"field": "Year", "type": "ordinal", "title": "Year"},
+          {"field": "Player", "type": "nominal", "title": "Player"},
+          {"field": "Rank", "type": "quantitative", "title": "Rank"}
+        ]
+      }
+    },
+    {
+      "data": {"values": [{"Year": 2022, "Player": "Novak Djokovic", "Rank": 5}]},
+      "mark": {
+        "type": "text",
+        "text": "In 2022, Novak was banned from many ATP tournaments due to COVID",
+        "align": "left",
+        "dx": {"expr": "View == 'All Ranks' ? -350 : -300"},
+        "dy": {"expr": "View == 'All Ranks' ? 50 : -30"},
+        "color": "black",
+        "fontSize": 12
+      },
+      "encoding": {
+        "x": {"field": "Year", "type": "ordinal"},
+        "y": {"field": "Rank", "type": "quantitative"}
+      }
+    }
+  ]
+}
