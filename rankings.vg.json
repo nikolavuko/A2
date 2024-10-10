@@ -1,0 +1,54 @@
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "title": "Year-End ATP Ranks of the Big 3 (2000-2024)",
+    "data": {
+      "url": "https://raw.githubusercontent.com/nikolavuko/A2/refs/heads/main/Big_3_ATP_Ranks_2000_2024.csv",
+      "format": {"type": "csv"}
+    },
+    "transform": [
+      {
+        "fold": ["Roger Federer", "Rafael Nadal", "Novak Djokovic"],
+        "as": ["Player", "Rank"]
+      },
+      {
+        "filter": "datum.Rank != null && datum.Rank != '' && datum.Rank > 0"
+      }
+    ],
+    "width": 800,
+    "height": 400,
+    "mark": {
+      "type": "line",
+      "point": true,
+      "interpolate": "linear"
+    },
+    "encoding": {
+      "x": {
+        "field": "Year",
+        "type": "ordinal",
+        "title": "Year",
+        "axis": {"labelAngle": 0}
+      },
+      "y": {
+        "field": "Rank",
+        "type": "quantitative",
+        "title": "ATP Rank",
+        "scale": {"domain": [1, 5], "reverse": true, "zero": false},
+        "axis": {"tickMinStep": 1}
+      },
+      "color": {
+        "field": "Player",
+        "type": "nominal",
+        "scale": {"range": ["#1f77b4", "#ff7f0e", "#2ca02c"]},
+        "title": "Player"
+      },
+      "tooltip": [
+        {"field": "Year", "type": "ordinal", "title": "Year"},
+        {"field": "Player", "type": "nominal", "title": "Player"},
+        {"field": "Rank", "type": "quantitative", "title": "Rank"}
+      ]
+    },
+    "config": {
+      "line": {"point": true}
+    }
+  }
+  
