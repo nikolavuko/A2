@@ -11,10 +11,13 @@
 <title>Mens Tennis, a look through history</title>
 </head>
 <body>
-    <h1>Big 3 Grand Slam Race</h1>
-    <div id="top"></div>
+    <h1>Rankings</h1>
+    <div id="ten"></div>
     <h1>ATP Tournaments Won per Country (2000-2024)</h1>
     <div id="map"></div>
+    
+    <h1>Big 3 Grand Slam Race</h1>
+    <div id="top"></div>
     <h1>Surfaces</h1>
     <div id="surface"></div>
     <h1>Rankings</h1>
@@ -45,6 +48,12 @@
          }).catch(console.error);
     </script>
 
+    <script>
+         var vg_5 = "top10.vg.json";  
+         vegaEmbed("#ten", vg_5).then(function(result) {
+   
+          }).catch(console.error);
+    </script>
 
 
 
