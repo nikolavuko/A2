@@ -1,59 +1,54 @@
 {
-    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-    "data": {
-      "values": [
-        {"category": "All ATP Tournaments", "surface": "Hard", "count": 33},
-        {"category": "All ATP Tournaments", "surface": "Clay", "count": 20},
-        {"category": "All ATP Tournaments", "surface": "Grass", "count": 8},
-        {"category": "Grand Slams", "surface": "Hard", "count": 2},
-        {"category": "Grand Slams", "surface": "Clay", "count": 1},
-        {"category": "Grand Slams", "surface": "Grass", "count": 1},
-        {"category": "1000", "surface": "Hard", "count": 6},
-        {"category": "1000", "surface": "Clay", "count": 3},
-        {"category": "1000", "surface": "Grass", "count": 0},
-        {"category": "500", "surface": "Hard", "count": 8},
-        {"category": "500", "surface": "Clay", "count": 3},
-        {"category": "500", "surface": "Grass", "count": 2},
-        {"category": "250", "surface": "Hard", "count": 17},
-        {"category": "250", "surface": "Clay", "count": 13},
-        {"category": "250", "surface": "Grass", "count": 5}
-      ]
-    },
-    "params": [
-      {
-        "name": "CategorySelection",
-        "value": "All ATP Tournaments",
-        "bind": {
-          "input": "select",
-          "options": ["All ATP Tournaments", "Grand Slams", "1000", "500", "250"],
-          "labels": ["All ATP Tournaments", "Grand Slams", "1000", "500", "250"],
-          "name": "Select Tournament Category: "
-        }
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "data": {
+    "values": [
+      {"Type": "Grand Slam", "Surface": "Hard", "Tournaments": 2},
+      {"Type": "Grand Slam", "Surface": "Clay", "Tournaments": 1},
+      {"Type": "Grand Slam", "Surface": "Grass", "Tournaments": 1},
+      {"Type": "ATP 1000", "Surface": "Hard", "Tournaments": 5},
+      {"Type": "ATP 1000", "Surface": "Clay", "Tournaments": 3},
+      {"Type": "ATP 1000", "Surface": "Grass", "Tournaments": 0},
+      {"Type": "ATP 500", "Surface": "Hard", "Tournaments": 5},
+      {"Type": "ATP 500", "Surface": "Clay", "Tournaments": 3},
+      {"Type": "ATP 500", "Surface": "Grass", "Tournaments": 2},
+      {"Type": "ATP 250", "Surface": "Hard", "Tournaments": 15},
+      {"Type": "ATP 250", "Surface": "Clay", "Tournaments": 9},
+      {"Type": "ATP 250", "Surface": "Grass", "Tournaments": 4}
+    ]
+  },
+  "params": [
+    {
+      "name": "typeSelection",
+      "value": "All",
+      "bind": {
+        "input": "select",
+        "options": ["All", "Grand Slam", "ATP 1000", "ATP 500", "ATP 250"],
+        "name": "Tournament Type: "
       }
-    ],
-    "transform": [
-      {"filter": "datum.category == CategorySelection"},
-      {"window": [{"op": "sum", "field": "count", "as": "TotalCount"}], "frame": [null, null]},
-      {"calculate": "(datum.count / datum.TotalCount) * 100", "as": "Percentage"}
-    ],
-    "mark": {"type": "arc", "outerRadius": 100},
-    "encoding": {
-      "theta": {"field": "count", "type": "quantitative"},
-      "color": {
-        "field": "surface",
-        "type": "nominal",
-        "scale": {
-          "domain": ["Hard", "Clay", "Grass"],
-          "range": ["#87CEEB", "#FFB347", "#90EE90"]
-        },
-        "title": "Surface Type"
+    }
+  ],
+  "transform": [
+    {
+      "filter": "typeSelection == 'All' || datum.Type == typeSelection"
+    }
+  ],
+  "mark": {"type": "arc", "innerRadius": 50},
+  "encoding": {
+    "theta": {"field": "Tournaments", "type": "quantitative", "stack": true},
+    "color": {
+      "field": "Surface",
+      "type": "nominal",
+      "scale": {
+        "domain": ["Hard", "Clay", "Grass"],
+        "range": ["#1f77b4", "#ff7f0e", "#2ca02c"]
       },
-      "tooltip": [
-        {"field": "surface", "type": "nominal", "title": "Surface"},
-        {"field": "count", "type": "quantitative", "title": "Count"},
-        {"field": "Percentage", "type": "quantitative", "title": "Percentage", "format": ".2f"}
-      ]
+      "title": "Surface"
     },
-    "view": {"stroke": "transparent"},
-    "title": "Distribution of Court Surfaces"
-  }
+    "tooltip": [
+      {"field": "Type", "type": "nominal", "title": "Tournament Type"},
+      {"field": "Surface", "type": "nominal"},
+      {"field": "Tournaments", "type": "quantitative"}
+    ]
+  },
+  "view": {"stroke": null}
+}
