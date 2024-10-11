@@ -1,0 +1,49 @@
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "description": "Head-to-Head Record Heat Map for Nadal, Djokovic, and Federer",
+    "data": {
+      "values": [
+        {"Player": "Nadal", "Opponent": "Djokovic", "Wins": 29, "Losses": 31, "Percentage": 48.3},
+        {"Player": "Nadal", "Opponent": "Federer", "Wins": 24, "Losses": 16, "Percentage": 60.0},
+        {"Player": "Djokovic", "Opponent": "Nadal", "Wins": 31, "Losses": 29, "Percentage": 51.7},
+        {"Player": "Djokovic", "Opponent": "Federer", "Wins": 27, "Losses": 23, "Percentage": 54.0},
+        {"Player": "Federer", "Opponent": "Nadal", "Wins": 16, "Losses": 24, "Percentage": 40.0},
+        {"Player": "Federer", "Opponent": "Djokovic", "Wins": 23, "Losses": 27, "Percentage": 46.0}
+      ]
+    },
+    "mark": "rect",
+    "encoding": {
+      "x": {
+        "field": "Opponent",
+        "type": "nominal",
+        "axis": {
+          "title": "Opponent"
+        }
+      },
+      "y": {
+        "field": "Player",
+        "type": "nominal",
+        "axis": {
+          "title": "Player"
+        }
+      },
+      "color": {
+        "field": "Percentage",
+        "type": "quantitative",
+        "scale": {"scheme": "purples"},
+        "title": "Win %"
+      },
+      "tooltip": [
+        {"field": "Player", "type": "nominal"},
+        {"field": "Opponent", "type": "nominal"},
+        {"field": "Wins", "type": "quantitative", "title": "Wins"},
+        {"field": "Losses", "type": "quantitative", "title": "Losses"},
+        {"field": "Percentage", "type": "quantitative", "title": "Win %"}
+      ]
+    },
+    "config": {
+      "view": {"stroke": null},
+      "axis": {"grid": false, "domain": false}
+    }
+  }
+  

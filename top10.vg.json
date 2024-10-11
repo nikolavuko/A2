@@ -1,42 +1,95 @@
 {
-    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-    "title": "Top 10 Players by Number of ATP Titles (All Time)",
-    "data": {
-      "values": [
-        {"Player": "Jimmy Connors", "Titles": 109},
-        {"Player": "Roger Federer", "Titles": 103},
-        {"Player": "Novak Djokovic", "Titles": 99},
-        {"Player": "Ivan Lendl", "Titles": 94},
-        {"Player": "Rafael Nadal", "Titles": 92},
-        {"Player": "John McEnroe", "Titles": 77},
-        {"Player": "Rod Laver", "Titles": 72},
-        {"Player": "Björn Borg", "Titles": 66},
-        {"Player": "Ilie Năstase", "Titles": 64},
-        {"Player": "Pete Sampras", "Titles": 64}
-      ]
-    },
-    "width": 600,
-    "height": 400,
-    "mark": "bar",
-    "encoding": {
-      "y": {
-        "field": "Player",
-        "type": "ordinal",
-        "sort": "-x",
-        "title": "Player"
-      },
-      "x": {
-        "field": "Titles",
-        "type": "quantitative",
-        "title": "Titles"
-      },
-      "color": {
-        "value": "#1f77b4"
-      },
-      "tooltip": [
-        {"field": "Player", "type": "nominal", "title": "Player"},
-        {"field": "Titles", "type": "quantitative", "title": "Titles"}
-      ]
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "title": "Top Players by Number of Titles",
+  "width": 800,
+  "height": 400,
+  "data": {
+    "values": [
+      {"Player": "Jimmy Connors", "Titles": 109, "Type": "ATP"},
+      {"Player": "Roger Federer", "Titles": 103, "Type": "ATP"},
+      {"Player": "Novak Djokovic", "Titles": 99, "Type": "ATP"},
+      {"Player": "Ivan Lendl", "Titles": 94, "Type": "ATP"},
+      {"Player": "Rafael Nadal", "Titles": 92, "Type": "ATP"},
+      {"Player": "John McEnroe", "Titles": 77, "Type": "ATP"},
+      {"Player": "Rod Laver", "Titles": 72, "Type": "ATP"},
+      {"Player": "Björn Borg", "Titles": 66, "Type": "ATP"},
+      {"Player": "Ilie Năstase", "Titles": 64, "Type": "ATP"},
+      {"Player": "Pete Sampras", "Titles": 64, "Type": "ATP"},
+      {"Player": "Novak Djokovic", "Titles": 24, "Type": "Grand Slam"},
+      {"Player": "Rafael Nadal", "Titles": 22, "Type": "Grand Slam"},
+      {"Player": "Roger Federer", "Titles": 20, "Type": "Grand Slam"},
+      {"Player": "Pete Sampras", "Titles": 14, "Type": "Grand Slam"},
+      {"Player": "Roy Emerson", "Titles": 12, "Type": "Grand Slam"},
+      {"Player": "Björn Borg", "Titles": 11, "Type": "Grand Slam"},
+      {"Player": "Rod Laver", "Titles": 11, "Type": "Grand Slam"},
+      {"Player": "William Tilden", "Titles": 10, "Type": "Grand Slam"},
+      {"Player": "Fred Perry", "Titles": 8, "Type": "Grand Slam"},
+      {"Player": "Andre Agassi", "Titles": 8, "Type": "Grand Slam"},
+      {"Player": "Jimmy Connors", "Titles": 8, "Type": "Grand Slam"},
+      {"Player": "Ken Rosewall", "Titles": 8, "Type": "Grand Slam"},
+      {"Player": "Ivan Lendl", "Titles": 8, "Type": "Grand Slam"}
+    ]
+  },
+  "transform": [
+    {"filter": "datum.Type == TournamentType"},
+    {"sort": [{"field": "Titles", "order": "descending"}]}
+  ],
+  "params": [
+    {
+      "name": "TournamentType",
+      "value": "ATP",
+      "bind": {
+        "input": "select",
+        "options": ["ATP", "Grand Slam"],
+        "name": "Select Tournament Type: "
+      }
     }
-  }
-  
+  ],
+  "encoding": {
+    "y": {
+      "field": "Player",
+      "type": "nominal",
+      "sort": {"field": "Titles", "order": "descending"},
+      "axis": {
+        "title": "Player",
+        "ticks": false,
+        "domain": false,
+        "grid": false
+      }
+    },
+    "x": {
+      "field": "Titles",
+      "type": "quantitative",
+      "axis": {"title": "Number of Titles", "grid": false}
+    },
+    "tooltip": [
+      {"field": "Player", "type": "nominal", "title": "Player"},
+      {"field": "Titles", "type": "quantitative", "title": "Titles"},
+      {"field": "Type", "type": "nominal", "title": "Tournament Type"}
+    ]
+  },
+  "layer": [
+    {
+      "mark": {
+        "type": "rule",
+        "color": "#d9b300",
+        "strokeWidth": 2,
+        "opacity": 0.5
+      }
+    },
+    {
+      "mark": {
+        "type": "text",
+        "text": "🏆",
+        "align": "left",
+        "baseline": "middle",
+        "dx": 5,
+        "size": 20
+      },
+      "encoding": {
+        "x": {"field": "Titles", "type": "quantitative"},
+        "y": {"field": "Player", "type": "nominal"}
+      }
+    }
+  ]
+}

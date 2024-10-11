@@ -15,13 +15,15 @@
     <div id="ten"></div>
     <h1>ATP Tournaments Won per Country (2000-2024)</h1>
     <div id="map"></div>
-    
+
     <h1>Big 3 Grand Slam Race</h1>
     <div id="top"></div>
     <h1>Surfaces</h1>
     <div id="surface"></div>
     <h1>Rankings</h1>
     <div id="rank"></div>
+    <h1>Head to Head</h1>
+    <div id="head"></div>
 
 
     
@@ -52,6 +54,13 @@
          var vg_5 = "top10.vg.json";  
          vegaEmbed("#ten", vg_5).then(function(result) {
    
+          }).catch(console.error);
+    </script>
+
+    <script>
+         var vg_6 = "head.vg.json";  
+         vegaEmbed("#head", vg_6).then(function(result) {
+
           }).catch(console.error);
     </script>
 
