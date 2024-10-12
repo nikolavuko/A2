@@ -8,11 +8,36 @@
 <script src="https://cdn.jsdelivr.net/npm/vega-lite@5.1.0"></script>
 <script src="https://cdn.jsdelivr.net/npm/vega-embed@6.17.0"></script>
 
-<title>Mens Tennis, a look through history</title>
+<title>History of Men's Tennis</title>
 </head>
 <body>
-    <h1>Rankings</h1>
-    <div id="ten"></div>
+
+    <!-- Main Title and Introduction -->
+    <h1 style="text-align: center; font-size: 2.5em;">HISTORY OF MEN'S TENNIS</h1>
+    <p style="text-align: center; width: 80%; margin: auto;">
+        Since the beginning of the open era (1968), tennis has exploded in popularity as a televised sport and competition. 
+        Today we will dive into the history of the men's side of tennis, seeing what countries have had the most success, 
+        the diversity of the surfaces on tour, and delving deeper into the infamous “Big 3”.
+    </p>
+
+    <!-- Charts Section: Rankings and Surfaces -->
+    <div style="display: flex; justify-content: center; align-items: center; margin-top: 2em;">
+        <div id="ten" style="flex: 1; margin-right: 1em;"></div>
+        <div id="surface" style="flex: 1; margin-left: 1em;"></div>
+    </div>
+
+    <!-- Description Text Below Charts -->
+    <div style="width: 80%; margin: 2em auto; text-align: center;">
+        <p>
+            In the open tour, different tournaments have different worth, ranging from tournaments that 
+            are worth 250 points all the way to the most pristine “Grand Slams”, worth 2000 points. 
+            When looking into the history of a player's career, all wins are important, but the Grand Slams are what is looked at the most.
+        </p>
+    </div>
+
+
+
+
     <h1>ATP Tournaments Won per Country (2000-2024)</h1>
     <div id="map"></div>
 

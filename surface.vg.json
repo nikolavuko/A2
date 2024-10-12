@@ -1,5 +1,8 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "title": "Surface Distribution of the Open Tour",
+"width": 400,
+"height": 400,
   "data": {
     "values": [
       {"Type": "Grand Slam", "Surface": "Hard", "Tournaments": 2},
