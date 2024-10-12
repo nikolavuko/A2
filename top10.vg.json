@@ -1,5 +1,6 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "background": "#f0f5e5",
   "title": "Top Players by Number of Titles",
   "width": 800,
   "height": 400,

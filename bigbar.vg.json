@@ -1,5 +1,6 @@
 {
     "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "background": "#f0f5e5",
     "width": 800,
     "height": 450,
     "title": "Grand Slam Wins by the Big 3",

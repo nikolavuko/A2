@@ -8,6 +8,9 @@
 <script src="https://cdn.jsdelivr.net/npm/vega-lite@5.1.0"></script>
 <script src="https://cdn.jsdelivr.net/npm/vega-embed@6.17.0"></script>
 
+
+
+
 <title>History of Men's Tennis</title>
 <style>
     .flex-container {
@@ -17,15 +20,49 @@
         margin-top: 20px;
     }
     .text-section {
-        font-size: 16px;
+        font-size: 20px;
         line-height: 1.5;
     }
+    body {
+        background-color: #f0f5e9; /* Light green background resembling a tennis court */
+    }
+    .banner-title {
+        background-color: #3c763d; /* Dark green banner color */
+        color: white;
+        text-align: center;
+        padding: 1em 0;
+        font-size: 2.5em;
+        margin: 0;
+    }
+
+    .banner-subtitle {
+        background-color: #3c763d; /* Dark green banner color */
+        color: white;
+        text-align: center;
+        padding: 0.5em 0;
+        font-size: 2em;
+        margin: 2em 0 0 0;
+    }
+    .text-section {
+        font-size: 1.0em; /* Larger text size for paragraphs */
+        line-height: 1.8;
+    }
+
+    h1 {
+        font-size: 2em; /* General heading font size */
+    }
+
+    p {
+        font-size: 1.5em; /* Increase paragraph font size slightly */
+    }
+    
+    
 </style>
 </head>
 <body>
 
     <!-- Main Title and Introduction -->
-    <h1 style="text-align: center; font-size: 2.5em;">HISTORY OF MEN'S TENNIS</h1>
+    <h1 class="banner-title">HISTORY OF MEN'S TENNIS</h1>
     <p style="text-align: center; width: 80%; margin: auto;">
         Since the beginning of the open era (1968), tennis has exploded in popularity as a televised sport and competition. 
         Today we will dive into the history of the men's side of tennis, seeing what countries have had the most success, 
@@ -65,14 +102,15 @@
 </div>
 
 
-    <!-- Big 3 Title and Introduction -->
-    <h1 style="text-align: center; font-size: 2.5em; margin-top: 2em;">THE BIG 3</h1>
-    <p style="text-align: center; width: 80%; margin: auto;">
-        Roger Federer, Rafael Nadal, and Novak Djokovic are considered the Big 3 of tennis, but why is that? 
-        In a sport with so many great players, what makes these three stand apart? Well, for over a decade, 
-        they dominated the sport, consistently in the top rankings and winning the most slams. This year is the 
-        first since 2002 that a single member of the Big 3 has not won a grand slam—22 years of dominance.
-    </p>
+<!-- Big 3 Title and Introduction -->
+<h1 class="banner-subtitle">THE <span style="font-weight: bolder; font-size: 1.3em;">BIG 3</span> </h1>
+<p style="text-align: center; width: 80%; margin: auto;">
+    Roger Federer, Rafael Nadal, and Novak Djokovic are considered the Big 3 of tennis, but why is that? 
+    In a sport with so many great players, what makes these three stand apart? Well, for over a decade, 
+    they dominated the sport, consistently in the top rankings and winning the most slams. This year is the 
+    first since 2002 that a single member of the Big 3 has not won a grand slam—22 years of dominance.
+</p>
+
 
     <!-- Flex container for the Rankings chart and descriptive text -->
     <div class="flex-container">
@@ -81,7 +119,7 @@
         <!-- Text on the right side of the Rankings chart -->
         <div class="text-section">
             <p>
-                Roger was first to the scene and found the most success early on, while Novak was the last to peak 
+                Roger was first to the scene and found the most success early on, while Djokovic was the last to peak 
                 and has continued success to this day, winning a gold medal in this year's Olympic Games.
             </p>
         </div>
@@ -96,7 +134,7 @@
      <div class="text-section">
          <p>
              Each player had a preferred surface. With Nadal being the most dominant on clay, he earned the name 
-             “The King of Clay.” Nadal's dominance in the French Open will likely never be topped. Novak’s 
+             “The King of Clay”. Nadal's dominance in the French Open will likely never be topped. Djokovic's 
              well-roundedness is likely why he has the most slams of the three.
          </p>
      </div>
@@ -112,7 +150,7 @@
      <div class="text-section">
          <p>
              With Nadal announcing his retirement, this will be what the final head-to-head of the Big 3 looks like. 
-             It can be seen that Novak finished with a positive win rate against the other two. Novak and Nadal 
+             It can be seen that Djokovic finished with a positive win rate against the other two. Djokovic and Nadal 
              had the greatest rivalry in all of tennis, with 60 matches played between them. They share records such 
              as the longest Australian Open final (5 hours and 53 minutes) and most matches played against the same opponent.
          </p>
@@ -162,6 +200,14 @@
 
           }).catch(console.error);
     </script>
+
+    <script>
+    var vg_2 = "map.vg.json";  // Replace this with the actual file name of your map configuration
+    vegaEmbed("#map", vg_2).then(function(result) {
+        // Optional: You can handle success here if needed
+    }).catch(console.error);
+</script>
+
 
 
 

@@ -1,9 +1,50 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "background": "#f0f5e5",
   "width": 1000,
   "height": 600,
   "title": "Amount of ATP Tournaments Won per Country (2000-2024)",
-  "projection": {"type": "equalEarth"},
+
+"params": [
+
+{
+  "name": "zoom_level",
+  "value": 230,
+  "bind": {
+    "input": "range",
+    "min": 210,
+    "max": 1000,
+    "step": 100,
+    "name": "Zoom: "
+}
+},
+{
+"name": "center_to",
+"value": [0, 0],
+      "bind": {
+        "input": "select",
+        "options": [
+          [0, 0],        
+          [-95, 37.5],   
+          [15, 50],      
+          [90, 20],      
+          [140, -30]     
+        ],
+        "labels": ["World", "Americas", "Europe", "Asia", "Oceania"],
+        "name": "Map Center: "
+      }
+    }
+  ],
+
+
+
+
+
+  "projection": {"type": "equalEarth",
+  "center": {"expr": "center_to"},
+  "scale": {"expr": "zoom_level"}
+},
+  
   "layer": [
     {
       "data": {
@@ -38,12 +79,12 @@
             "data": {
               "values": [
                 {"Country": "AUS", "Wins": 50},
-                {"Country": "FRA", "Wins": 88},
                 {"Country": "SWE", "Wins": 32},
                 {"Country": "USA", "Wins": 134},
-                {"Country": "GER", "Wins": 56},
-                {"Country": "SUI", "Wins": 121},
+                {"Country": "DEU", "Wins": 56},
+                {"Country": "SUI", "Wins": 122},
                 {"Country": "AUT", "Wins": 24},
+                {"Country": "FRA", "Wins": 104},
                 {"Country": "BRA", "Wins": 20},
                 {"Country": "ARG", "Wins": 69},
                 {"Country": "ESP", "Wins": 229},
@@ -84,7 +125,10 @@
                 {"Country": "GEO", "Wins": 5},
                 {"Country": "GRE", "Wins": 10},
                 {"Country": "MDA", "Wins": 1},
-                {"Country": "NOR", "Wins": 12}
+                {"Country": "NOR", "Wins": 12},
+                {"Country": "CHN", "Wins": 14},
+                {"Country": "CHE", "Wins": 122},
+                {"Country": "POL", "Wins": 5}
               ]
             },
             "key": "Country",

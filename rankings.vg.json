@@ -1,5 +1,6 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "background": "#f0f5e5",
   "title": "Year-End ATP Ranks of the Big 3 (2000-2024)",
   "width": 800,
   "height": 400,
@@ -119,7 +120,7 @@
       "data": {"values": [{"Year": 2022, "Player": "Novak Djokovic", "Rank": 5}]},
       "mark": {
         "type": "text",
-        "text": "In 2022, Novak was banned from many ATP tournaments due to COVID",
+        "text": "In 2022, Djokovic was banned from many ATP tournaments due to COVID",
         "align": "left",
         "dx": {"expr": "View == 'All Ranks' ? -350 : -300"},
         "dy": {"expr": "View == 'All Ranks' ? 50 : -30"},
