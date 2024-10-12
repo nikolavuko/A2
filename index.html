@@ -9,6 +9,18 @@
 <script src="https://cdn.jsdelivr.net/npm/vega-embed@6.17.0"></script>
 
 <title>History of Men's Tennis</title>
+<style>
+    .flex-container {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-top: 20px;
+    }
+    .text-section {
+        font-size: 16px;
+        line-height: 1.5;
+    }
+</style>
 </head>
 <body>
 
@@ -38,17 +50,79 @@
 
 
 
-    <h1>ATP Tournaments Won per Country (2000-2024)</h1>
-    <div id="map"></div>
+<!-- Flex container for the map and the text on the right -->
+<div class="flex-container">
+    <!-- Map container -->
+    <div id="map" style="flex: 1;"></div>
+    <!-- Text container on the right side of the map -->
+    <div class="text-section" style="flex: 1; padding-left: 20px;">
+        <p>
+            Tennis is an international sport, with the tour being all over the world, hence players from all over the globe compete. From this map we can see which countries have had the most success this century. Some countries such as America have their wins come from a range of players, whilst others such as Serbia only come from a handful of players. Now we will look into the 3 players who have found the most success in the sports history.
+        </p>
+    </div>
 
-    <h1>Big 3 Grand Slam Race</h1>
-    <div id="top"></div>
-    <h1>Surfaces</h1>
-    <div id="surface"></div>
-    <h1>Rankings</h1>
-    <div id="rank"></div>
-    <h1>Head to Head</h1>
-    <div id="head"></div>
+
+</div>
+
+
+    <!-- Big 3 Title and Introduction -->
+    <h1 style="text-align: center; font-size: 2.5em; margin-top: 2em;">THE BIG 3</h1>
+    <p style="text-align: center; width: 80%; margin: auto;">
+        Roger Federer, Rafael Nadal, and Novak Djokovic are considered the Big 3 of tennis, but why is that? 
+        In a sport with so many great players, what makes these three stand apart? Well, for over a decade, 
+        they dominated the sport, consistently in the top rankings and winning the most slams. This year is the 
+        first since 2002 that a single member of the Big 3 has not won a grand slam—22 years of dominance.
+    </p>
+
+    <!-- Flex container for the Rankings chart and descriptive text -->
+    <div class="flex-container">
+        <!-- Rankings Chart -->
+        <div id="rank" style="flex: 1; width: 60%;"></div>
+        <!-- Text on the right side of the Rankings chart -->
+        <div class="text-section">
+            <p>
+                Roger was first to the scene and found the most success early on, while Novak was the last to peak 
+                and has continued success to this day, winning a gold medal in this year's Olympic Games.
+            </p>
+        </div>
+    </div>
+
+
+
+
+ <!-- Big 3 Grand Slam Race Section -->
+ <div class="flex-container">
+     <!-- Text on the left side of the Grand Slam Race chart -->
+     <div class="text-section">
+         <p>
+             Each player had a preferred surface. With Nadal being the most dominant on clay, he earned the name 
+             “The King of Clay.” Nadal's dominance in the French Open will likely never be topped. Novak’s 
+             well-roundedness is likely why he has the most slams of the three.
+         </p>
+     </div>
+     <!-- Grand Slam Race Chart -->
+     <div id="top" class="chart-section"></div>
+ </div>
+
+ <!-- Head to Head Section -->
+ <div class="flex-container">
+     <!-- Head to Head Chart -->
+     <div id="head" class="chart-section"></div>
+     <!-- Text on the right side of the Head to Head chart -->
+     <div class="text-section">
+         <p>
+             With Nadal announcing his retirement, this will be what the final head-to-head of the Big 3 looks like. 
+             It can be seen that Novak finished with a positive win rate against the other two. Novak and Nadal 
+             had the greatest rivalry in all of tennis, with 60 matches played between them. They share records such 
+             as the longest Australian Open final (5 hours and 53 minutes) and most matches played against the same opponent.
+         </p>
+     </div>
+ </div>
+
+
+
+
+
 
 
     

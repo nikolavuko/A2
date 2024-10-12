@@ -1,5 +1,6 @@
 {
     "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "title": "Big 3 Head to Head",
     "width": 300,  
     "height": 300, 
     "description": "Head-to-Head Record Heat Map for Nadal, Djokovic, and Federer",
